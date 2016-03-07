@@ -1,14 +1,13 @@
-var imgurl;
+
 
 function requestTags(imurl){
     
-    var TOKEN = getToken();
-    var imgurl = imurl;
-    
+    var TOKEN = getToken(imurl);
+  
 }
 
 // Obtain token using client id and secret
-function getToken(){
+function getToken(imurl){
     console.log("Searching for token...");
     
     var token;
@@ -25,12 +24,12 @@ function getToken(){
         'type': 'POST',
         success: function(response){
             console.log("Token = " + response.access_token);
-            return useToken(response.access_token);
+            return useToken(response.access_token, imurl);
         }
     });
 }
 
-function useToken(accessToken){
+function useToken(accessToken, imgurl){
     
     console.log("Using token...");
     
@@ -57,8 +56,8 @@ function parseResponse(r){
     
     console.log("Parsing response");
     
-    if (resp.status_code === 'OK') {
-        var results = resp.results;
+    if (r.status_code === 'OK') {
+        var results = r.results;
         tags = results[0].result.tag.classes;
     } else {
         console.log('Sorry, something is wrong.');

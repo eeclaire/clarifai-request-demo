@@ -1,7 +1,9 @@
 ### Mine ###
-key.js
+keys.js
+web/keys.js
 
 ### NetBeans ###
+src/
 nbproject/
 build/
 build.xml
