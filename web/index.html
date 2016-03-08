@@ -10,6 +10,9 @@
         <script type="text/javascript" src="request.js"></script>
 
         <style>
+            * {
+                font-size: 30px;
+            }
             .hidden{
                 display:none;
             }
@@ -24,7 +27,7 @@
         </style>
     </head>
     <body>
-        <input type="text" id="imgurl" placeholder="Image URL"/>
+        <input type="text" id="imgurl" placeholder="Image URL" onkeypress="handle(event, $('#imgurl').val())"/>
         <button onclick="showImg($('#imgurl').val());requestTags($('#imgurl').val())">Get tags!</button>
         <br><br>
         <div id="full">
