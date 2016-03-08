@@ -66,3 +66,9 @@ function parseResponse(r){
     $('#tags').text(tags.toString().replace(/,/g, ', '));
     return tags;
 }
+
+// Change the image div class to show to display the image in the url
+function showImg(iurl){
+    x = document.getElementById('image').className = 'show';
+    y = document.getElementById('imgdisp').src = iurl;
+}

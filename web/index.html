@@ -1,23 +1,32 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>Demo</title>
+        <title>Clarifai Demo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>	
         <script type="text/javascript" src="keys.js"></script>
         <script type="text/javascript" src="request.js"></script>
-	<!--<link href='css/main.css' rel='stylesheet' type='text/css'>-->
+
+        <style>
+            .hidden{
+                display:none;
+            }
+
+            .show{
+                display:float;
+            }
+        </style>
     </head>
     <body>
         <input type="text" id="imgurl" placeholder="Image URL"/>
-        <button onclick="requestTags($('#imgurl').val())">Get tags!</button>
-	<div id="tags"></div>
-    </body>
+        <button onclick="showImg($('#imgurl').val());requestTags($('#imgurl').val())">Get tags!</button>
+        
+        <div id="image" class="hidden">
+            <img src="" id="imgdisp">
+        </div>
+        <div id="tags" class="show"></div>
+        <!--<div id="tags"></div>-->
+    </body> 
 </html>
