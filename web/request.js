@@ -1,15 +1,12 @@
 
 
 function requestTags(imurl){
-    
     var TOKEN = getToken(imurl);
-  
 }
 
 // Obtain token using client id and secret
 function getToken(imurl){
-    console.log("Searching for token...");
-    
+
     var token;
     
     var clientData = {
@@ -31,8 +28,6 @@ function getToken(imurl){
 
 function useToken(accessToken, imgurl){
     
-    console.log("Using token...");
-    
     var imgData = {
         'url': imgurl  
     };
@@ -53,9 +48,7 @@ function useToken(accessToken, imgurl){
 
 function parseResponse(r){
     var tags = [];
-    
-    console.log("Parsing response");
-    
+
     if (r.status_code === 'OK') {
         var results = r.results;
         tags = results[0].result.tag.classes;
@@ -70,5 +63,8 @@ function parseResponse(r){
 // Change the image div class to show to display the image in the url
 function showImg(iurl){
     x = document.getElementById('image').className = 'show';
-    y = document.getElementById('imgdisp').src = iurl;
-}
+    y = document.getElementById('imgdisp').src = iurl; 
+    
+    // Set the tags div width so that it fits next to the image
+    $('#tags').css("width", $( document ).width() - document.getElementById('image').offsetWidth - 50);       
+}   
