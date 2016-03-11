@@ -10,31 +10,13 @@
         <script type="text/javascript" src="request.js"></script>
 
         <style>
-            * {
-                font-size: 30px;
-            }
-            .hidden{
-                display:none;
-            }
 
-            .show{
-                display:inline-block;
-                vertical-align: top;
-                /*border: solid;
-                border-width: 5px;
-                border-color: red;*/
-            }
         </style>
     </head>
     <body>
-        <input type="text" id="imgurl" placeholder="Image URL" onkeypress="handle(event, $('#imgurl').val())"/>
-        <button onclick="showImg($('#imgurl').val());requestTags($('#imgurl').val())">Get tags!</button>
+        <input type="text" id="imgurl"/>
+        <button>Get tags!</button>
         <br><br>
-        <div id="full">
-            <div id="image" class="hidden">
-                <img src="" id="imgdisp">
-            </div>
-            <div id="tags" class="show"></div>
-        </div>
+
     </body> 
 </html>

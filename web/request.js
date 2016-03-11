@@ -26,38 +26,14 @@ function getToken(imurl) {
     });
 }
 
+// This function is going to make the AJAX request to the tags endpoint
 function useToken(accessToken, imgurl) {
 
-    var imgData = {
-        'url': imgurl
-    };
 
-    $.ajax({
-        'url': 'https://api.clarifai.com/v1/tag',
-        'headers': {
-            'Authorization': 'Bearer ' + accessToken
-        },
-        'data': imgData,
-        'type': 'POST',
-        success: function (response) {
-            console.log("Obtained response from Clarifai");
-            parseResponse(response);
-        }
-    });
 }
 
 function parseResponse(r) {
-    var tags = [];
 
-    if (r.status_code === 'OK') {
-        var results = r.results;
-        tags = results[0].result.tag.classes;
-    } else {
-        console.log('Sorry, something is wrong.');
-    }
-
-    $('#tags').text(tags.toString().replace(/,/g, ', '));
-    return tags;
 }
 
 
@@ -71,14 +47,4 @@ function showImg(iurl) {
 
     // Set the tags div width so that it fits next to the image
     $('#tags').css("width", $(document).width() - document.getElementById('image').offsetWidth - 40);
-}
-
-// Replaces the need for a button (hopefully)
-function handle(e, url) {
-    if (e.keyCode === 13) {
-        //alert("Enter was pressed");
-        showImg(url);
-        requestTags(url);
-    }
-    return false;
 }
